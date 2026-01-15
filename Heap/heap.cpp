@@ -1,7 +1,6 @@
 #include <iostream>
-#include <algorithm> // for std::swap
+#include <algorithm> 
 
-// Standard Sift-Up for Max Heap
 void insert(int arr[], int n){
     int temp = arr[n];
     int i = n;
@@ -73,7 +72,7 @@ int main(){
     std::cout << "\n";
 
     // Delete Max (Logic essentially performs one step of Heap Sort)
-    deleteHeap(array, n);
+    for(int i = n; i > 1; i--) {deleteHeap(array, i);}
 
     std::cout << "After Delete (Max moved to end): ";
     for(int i = 1; i <= n; i++) std::cout << array[i] << " ";
