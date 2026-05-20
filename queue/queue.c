@@ -7,10 +7,10 @@ struct Queue{
     int* q;
 };
 void enqueue(struct Queue * queue, int x){
-    if(queue->rear == queue->size - 1){
+    if((queue->rear + 1) % queue->size == queue->front){
         printf("Queue is full");
     }else{
-        queue->rear++;
+        queue->rear = (queue->rear + 1) % queue->size;
         queue->q[queue->rear] = x;
     }
 }
@@ -19,7 +19,7 @@ int dequeue(struct Queue* queue){
     if(queue->front == queue->rear){
         printf("Queue is empty");
     }else{
-        queue->front++;
+        queue->front = (queue->front + 1) % queue->size;
         x = queue->q[queue->front];
     }
     return x;
