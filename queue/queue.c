@@ -25,9 +25,11 @@ int dequeue(struct Queue* queue){
     return x;
 }
 void display(struct Queue * queue){
-    for(int i = queue->front + 1; i<=queue->rear; i++){
-        printf("%d ",queue->q[i]);
-    }
+    int i = queue->front+1;
+    do{
+        printf("%d ", queue->q[i]);
+        i = (i+1) % queue->size;
+    }while(i != (queue->rear + 1) % queue->size);
     printf("\n");
 }
 void createQueue(struct Queue * queue, int size){
